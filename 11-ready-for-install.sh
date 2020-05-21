@@ -31,4 +31,4 @@ echo ========================== All Files Will Be Download When Booting ========
 verifyURL http://${YUM_DOMAIN}/ignition/${OCP_CLUSTER_ID}/bootstrap.ign
 verifyURL http://${YUM_DOMAIN}/ignition/${OCP_CLUSTER_ID}/master.ign
 verifyURL http://${YUM_DOMAIN}/ignition/${OCP_CLUSTER_ID}/worker.ign
-verifyURL ${RHCOS_METAL}
+verifyURL ${RHCOS_METAL_URL}
