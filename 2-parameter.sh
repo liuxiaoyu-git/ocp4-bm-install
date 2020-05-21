@@ -56,5 +56,38 @@ export SSH_PRI_FILE="${IGN_PATH}/ssh-key/id_rsa"          ## Ignition私钥文�
 EOF
 
 echo =============================================================================================
-echo =========== Complete Variables Setting, Please Run Next Line to Make Them Works. ============
+echo =============== Complete Variables Setting. All Variables Will Be Used Are: =================
+echo OCP_VER=${OCP_VER}
+echo RHCOS_VER=${RHCOS_VER}
+echo OCP_CLUSTER_ID=${OCP_CLUSTER_ID}
+echo DOMAIN=${DOMAIN}
+echo YUM_DOMAIN=${YUM_DOMAIN}
+echo REG_DOMAIN=${REG_DOMAIN}
+echo NODE_LIST=${NODE_LIST}
+echo YUM_PATH=${YUM_PATH}
+echo OCP_PATH=${OCP_PATH}
+echo REGISTRY_PATH=${REGISTRY_PATH}
+echo BOOT_FILE_PATH=${BOOT_FILE_PATH}
+echo RHCOS_ISO_PATH=${RHCOS_ISO_PATH}
+echo BASTION_IP=${BASTION_IP}
+echo SUPPORT_IP=${SUPPORT_IP}
+echo DNS_IP=${DNS_IP}
+echo NTP_IP=${NTP_IP}
+echo YUM_IP=${YUM_IP}
+echo REGISTRY_IP=${RHCOS_VER}
+echo NFS_IP=${NFS_IP}
+echo LB_IP=${LB_IP}
+echo BOOTSTRAP_IP=${BOOTSTRAP_IP}
+echo MASTER0_IP=${MASTER0_IP}
+echo WORKER0_IP=${WORKER0_IP}
+echo WORKER1_IP=${WORKER1_IP}
+echo REG_SECRET=${REG_SECRET}
+echo SSH_PRI_FILE=${SSH_PRI_FILE}
+echo NET_IF_NAME=${NET_IF_NAME}
+echo GATEWAY=${GATEWAY}
+echo RHCOS_METAL_URL=${RHCOS_METAL_URL}
+echo IGN_PATH=${IGN_PATH}
+echo REPLICA_WORKER=${REPLICA_WORKER}
+echo REPLICA_MASTER=${REPLICA_MASTER}
+echo ========================= Please Run Next Line to Make Them Works. ==========================
 echo "====================================== source ~/.bashrc ======================================"
