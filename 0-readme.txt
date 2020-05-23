@@ -1,15 +1,16 @@
-******************************************************
-* Please copy each line and run one-by-one in Linux. *
-******************************************************
+*************************************************************
+* Please copy each line and run one-by-one in Support Node. *
+*************************************************************
 
-./1-security.sh
-./2-parameter.sh
-./3-local-yum.sh
-./4-dns.sh
-./5-http-yum.sh
-./6-ntp.sh
-./7-haproxy.sh
-./8-registry.sh
-./9-iso.sh
-./source ./10-install-config.sh
-./11-ready-for-install.sh
+source ./1-security.sh
+source ./2-parameter.sh
+source ./3-precheck.sh
+source ./4-local-yum.sh
+source ./5-dns.sh
+source ./6-http-yum.sh
+source ./7-ntp.sh
+source ./8-haproxy.sh
+source ./9-registry.sh
+source ./10-iso.sh
+source ./11-install-config.sh
+source ./12-ready-for-install.sh
