@@ -3,6 +3,7 @@
 *************************************************************
 
 source ./1-security.sh
+
 source ./2-parameter.sh
 source ./3-precheck.sh
 source ./4-local-yum.sh
