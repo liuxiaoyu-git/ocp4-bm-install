@@ -1,5 +1,5 @@
-echo ================================= Checking Network Interface. ================================
-checkNetworkInferface ${NET_IF_NAME}
+#echo ================================= Checking Network Interface. ================================
+#checkNetworkInferface ${NET_IF_NAME}
 
 echo ======================= Checking files will be used during instation. ========================
 RESULT=0;
