@@ -53,6 +53,7 @@ export OCP_PATH="/data/OCP-\${OCP_VER}/ocp"               ## 存放OCP原始安�
 export REGISTRY_PATH="/data/registry"                     ## 容器镜像库存放的根目录
 export BOOT_FILE_PATH="/data/boot-files"                  ## 用来存放所有启动CoreOS所需文件的目录
 export RHCOS_ISO_PATH="\${BOOT_FILE_PATH}/rhcos-iso"      ## 用来存启动CoreOS所需ISO和RAW文件的目录
+export IGN_PATH="\${BOOT_FILE_PATH}/ignition/ocp4-1"      ## 存放Ignition相关文件的目录
 export BASTION_IP="192.168.1.13"
 export SUPPORT_IP="192.168.1.12"
 export DNS_IP="192.168.1.12"
@@ -72,7 +73,6 @@ export REG_SECRET="\${OCP_PATH}/secret/registry-secret.json"	 	## 指定一个�
 export SSH_PRI_FILE="\${IGN_PATH}/ssh-key/id_rsa"         ## Ignition私钥文件名
 export NET_IF_NAME="enp0s3"	                              ## 重要参数：CoreOS VM启动时缺省创建的网卡名，该名称和support节点的网卡名一致。
 export RHCOS_METAL_URL="http://\${YUM_DOMAIN}/rhcos-iso/rhcos-\${RHCOS_VER}-x86_64-metal.x86_64.raw.gz"
-export IGN_PATH="\${BOOT_FILE_PATH}/ignition/ocp4-1"      ## 存放Ignition相关文件的目录
 export REPLICA_WORKER="0"                                 ## 在安装阶段，将WORKER的数量设为0
 export REPLICA_MASTER="1"                                 ## 本文档的OpenShift集群只有1个master节点
 
