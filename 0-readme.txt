@@ -1,6 +1,6 @@
-*************************************************************
-* Please copy each line and run one-by-one in Support Node. *
-*************************************************************
+**********************************************************
+* Please copy each line and run as root in Support Node. *
+**********************************************************
 
 source ./1-security.sh
 source ./2-parameter.sh
