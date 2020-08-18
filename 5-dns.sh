@@ -21,9 +21,9 @@ zone "${OCP_CLUSTER_ID}.${DOMAIN}" IN {
         allow-transfer { any; };
 };
 
-zone "168.192.in-addr.arpa" IN {
+zone "${NET_SEGMENT_PI}.in-addr.arpa" IN {
         type master;
-        file "168.192.in-addr.arpa.zone";
+        file "${NET_SEGMENT_PI}.in-addr.arpa.zone";
         allow-transfer { any; };
 };
 
@@ -84,7 +84,7 @@ _etcd-server-ssl._tcp.${OCP_CLUSTER_ID}.${DOMAIN}. 8640 IN SRV 0 10 2380 etcd-0.
 
 EOF
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-cat > /var/named/168.192.in-addr.arpa.zone << EOF
+cat > /var/named/${NET_SEGMENT_PI}.in-addr.arpa.zone << EOF
 \$TTL 1D
 @           IN SOA  ${DOMAIN}. admin.${DOMAIN}. (
                                         0       ; serial
