@@ -54,18 +54,46 @@ export REGISTRY_PATH="/data/registry"                     ## 容器镜像库存�
 export BOOT_FILE_PATH="/data/boot-files"                  ## 用来存放所有启动CoreOS所需文件的目录
 export RHCOS_ISO_PATH="\${BOOT_FILE_PATH}/rhcos-iso"      ## 用来存启动CoreOS所需ISO和RAW文件的目录
 export IGN_PATH="\${BOOT_FILE_PATH}/ignition/ocp4-1"      ## 存放Ignition相关文件的目录
-export BASTION_IP="192.168.1.13"
-export SUPPORT_IP="192.168.1.12"
-export DNS_IP="192.168.1.12"
-export NTP_IP="192.168.1.12"
-export YUM_IP="192.168.1.12"
-export REGISTRY_IP="192.168.1.12"
-export NFS_IP="192.168.1.12"
-export LB_IP="192.168.1.12"
-export BOOTSTRAP_IP="192.168.1.100"
-export MASTER0_IP="192.168.1.101"
-export WORKER0_IP="192.168.1.110"
-export WORKER1_IP="192.168.1.111"
+
+export NET_SEGMENT_IP=192.168.1
+export NET_SEGMENT_PI=1.168.192
+
+export BASTION_IP="${NET_SEGMENT_IP}.13"                  ## 以下每对都是DNS用的正向IP和反向IP
+export BASTION_PI="13.${NET_SEGMENT_PI}"
+
+export SUPPORT_IP="${NET_SEGMENT_IP}.12"
+export SUPPORT_PI="12.${NET_SEGMENT_PI}"
+
+export DNS_IP="${NET_SEGMENT_IP}.12"
+export DNS_PI="12.${NET_SEGMENT_PI}"
+
+export NTP_IP="${NET_SEGMENT_IP}.12"
+export NTP_PI="12.${NET_SEGMENT_PI}"
+
+export YUM_IP="${NET_SEGMENT_IP}.12"
+export YUM_PI="12.${NET_SEGMENT_PI}"
+
+export REGISTRY_IP="${NET_SEGMENT_IP}.12"
+export REGISTRY_PI="12.${NET_SEGMENT_PI}"
+
+export NFS_IP="${NET_SEGMENT_IP}.12"
+export NFS_PI="12.${NET_SEGMENT_PI}"
+
+export LB_IP="${NET_SEGMENT_IP}.12"
+export LB_PI="12.${NET_SEGMENT_PI}"
+
+export BOOTSTRAP_IP="${NET_SEGMENT_IP}.100"
+export BOOTSTRAP_PI="100.${NET_SEGMENT_PI}"
+
+export MASTER0_IP="${NET_SEGMENT_IP}.101"
+export MASTER0_PI="101.${NET_SEGMENT_PI}"
+
+export WORKER0_IP="${NET_SEGMENT_IP}.110"
+export WORKER0_PI="110.${NET_SEGMENT_PI}"
+
+export WORKER1_IP="${NET_SEGMENT_IP}.111"
+export WORKER1_PI="111.${NET_SEGMENT_PI}"
+
 export GATEWAY="192.168.1.1"
 export NETMASK="255.255.255.0"
 export REPO_NAME="ocp4/openshift4"                        ## 在Docker Registry中存放OpenShift核心镜像的Repository
