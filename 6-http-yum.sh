@@ -3,7 +3,7 @@ echo "STEP：Install Httpd Service and Config Formal Yum"
 yum -y install httpd
 systemctl enable httpd --now
 restoreFile /etc/httpd/conf/httpd.conf
-sed -i -e 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
+sed -i  '/Listen 80/cListen 8080' /etc/httpd/conf/httpd.conf
 chmod -R 705 /data
 cat << EOF > /etc/httpd/conf.d/yum.conf
 Alias /repo "${YUM_PATH}"
