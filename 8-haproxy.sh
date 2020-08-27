@@ -89,10 +89,9 @@ backend ingress-https
 
 EOF
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-systemctl enable haproxy --now
+systemctl restart haproxy
 
 echo =============================================================================================
 echo =================== Complete HAProxy Config and Waiting for Running ... =====================
-sleep 40
 echo ============================== All Ports HAProxy Listened Are ===============================
-ss -lntp |grep haproxy
+ss -lntp | grep haproxy
