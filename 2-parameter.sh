@@ -53,7 +53,7 @@ export OCP_PATH="/data/OCP-\${OCP_VER}/ocp"               ## 存放OCP原始安�
 export REGISTRY_PATH="/data/registry"                     ## 容器镜像库存放的根目录
 export BOOT_FILE_PATH="/data/boot-files"                  ## 用来存放所有启动CoreOS所需文件的目录
 export RHCOS_ISO_PATH="\${BOOT_FILE_PATH}/rhcos-iso"      ## 用来存启动CoreOS所需ISO和RAW文件的目录
-export IGN_PATH="\${BOOT_FILE_PATH}/ignition/ocp4-1"      ## 存放Ignition相关文件的目录
+export IGN_PATH="\${BOOT_FILE_PATH}/ignition/\${OCP_CLUSTER_ID}"      ## 存放Ignition相关文件的目录
 
 export NET_SEGMENT_IP=192.168.1
 export NET_SEGMENT_PI=1.168.192
@@ -99,9 +99,9 @@ export NETMASK="255.255.255.0"
 export REPO_NAME="ocp4/openshift4"                        ## 在Docker Registry中存放OpenShift核心镜像的Repository
 export REG_SECRET="\${OCP_PATH}/secret/registry-secret.json"	 	## 指定一个文件，用来保存podman登录本地docker registry时所生成的secret，以便以后可免密登录
 export SSH_PRI_FILE="\${IGN_PATH}/ssh-key/id_rsa"         ## Ignition私钥文件名
-export NET_IF_NAME="enp0s3"	                              ## 重要参数：CoreOS VM启动时缺省创建的网卡名，该名称和support节点的网卡名一致。
+export NET_IF_NAME="enp0s3"	                              ## CoreOS启动时缺省创建的网卡名，该名称须和support节点的网卡名一致。KVM缺省用"ens3"；VMWare缺省用"ens192"；Virtualbox缺省用"enp0s3"
 export RHCOS_METAL_URL="http://\${YUM_DOMAIN}/rhcos-iso/rhcos-\${RHCOS_VER}-x86_64-metal.x86_64.raw.gz"
-export REPLICA_WORKER="0"                                 ## 在安装阶段，将WORKER的数量设为0
+export REPLICA_WORKER="0"                                 ## 在安装阶段，将WORKER的数量设为"0"
 export REPLICA_MASTER="1"                                 ## 本文档的OpenShift集群只有1个master节点
 
 EOF
@@ -110,6 +110,8 @@ source ~/.bashrc
 
 echo =============================================================================================
 echo =============== Complete Variables Setting. All Variables Will Be Used Are: =================
+echo =============================================================================================
+
 echo OCP_VER=${OCP_VER}
 echo RHCOS_VER=${RHCOS_VER}
 echo OCP_CLUSTER_ID=${OCP_CLUSTER_ID}
@@ -143,3 +145,7 @@ echo RHCOS_METAL_URL=${RHCOS_METAL_URL}
 echo IGN_PATH=${IGN_PATH}
 echo REPLICA_WORKER=${REPLICA_WORKER}
 echo REPLICA_MASTER=${REPLICA_MASTER}
+
+echo =============================================================================================
+echo =========================== If error, correct it and re-run me. =============================
+echo =============================================================================================
