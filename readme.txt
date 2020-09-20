@@ -8,6 +8,9 @@
 * Please copy each line and run one-by-one in Support Node as root.                         *
 *********************************************************************************************
 
+source ./0-setenv.sh
+source ./0-download-ocp.sh
+
 source ./1-security.sh
 source ./2-parameter.sh
 source ./3-precheck.sh
