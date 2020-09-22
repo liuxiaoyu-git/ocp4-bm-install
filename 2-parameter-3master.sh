@@ -47,7 +47,7 @@ export OCP_CLUSTER_ID="ocp4-1"
 export DOMAIN="example.internal"
 export YUM_DOMAIN="yum.\${DOMAIN}:8080"
 export REG_DOMAIN="registry.\${DOMAIN}:5000"              ## 容器镜像库的访问域名
-export NODE_LIST="bootstrap master-0 worker-0 worker-1"   ## 主机节点名列表
+export NODE_LIST="bootstrap master-0 master-1 master-2 worker-0 worker-1"   ## 主机节点名列表
 export YUM_PATH="/data/OCP-\${OCP_VER}/yum"               ## 存放yum源的目录
 export OCP_PATH="/data/OCP-\${OCP_VER}/ocp"               ## 存放OCP原始安装介质的目录
 export REGISTRY_PATH="/data/registry"                     ## 容器镜像库存放的根目录
@@ -88,6 +88,12 @@ export BOOTSTRAP_PI="100.${NET_SEGMENT_PI}"
 export MASTER0_IP="${NET_SEGMENT_IP}.101"
 export MASTER0_PI="101.${NET_SEGMENT_PI}"
 
+export MASTER1_IP="${NET_SEGMENT_IP}.102"
+export MASTER1_PI="102.${NET_SEGMENT_PI}"
+
+export MASTER2_IP="${NET_SEGMENT_IP}.103"
+export MASTER2_PI="103.${NET_SEGMENT_PI}"
+
 export WORKER0_IP="${NET_SEGMENT_IP}.110"
 export WORKER0_PI="110.${NET_SEGMENT_PI}"
 
@@ -102,7 +108,7 @@ export SSH_PRI_FILE="\${IGN_PATH}/ssh-key/id_rsa"         ## Ignition私钥文�
 export NET_IF_NAME="enp0s3"	                              ## CoreOS启动时缺省创建的网卡名，该名称须和support节点的网卡名一致。KVM缺省用"ens3"；VMWare缺省用"ens192"；Virtualbox缺省用"enp0s3"
 export RHCOS_METAL_URL="http://\${YUM_DOMAIN}/rhcos-iso/rhcos-\${RHCOS_VER}-x86_64-metal.x86_64.raw.gz"
 export REPLICA_WORKER="0"                                 ## 在安装阶段，将WORKER的数量设为"0"
-export REPLICA_MASTER="1"                                 ## 本文档的OpenShift集群只有1个master节点
+export REPLICA_MASTER="3"                                 ## 本文档的OpenShift集群只有1个master节点
 
 EOF
 
@@ -110,7 +116,6 @@ source ~/.bashrc
 
 echo =============================================================================================
 echo =============== Complete Variables Setting. All Variables Will Be Used Are: =================
-echo =============================================================================================
 
 echo OCP_VER=${OCP_VER}
 echo RHCOS_VER=${RHCOS_VER}
@@ -134,6 +139,8 @@ echo NFS_IP=${NFS_IP}
 echo LB_IP=${LB_IP}
 echo BOOTSTRAP_IP=${BOOTSTRAP_IP}
 echo MASTER0_IP=${MASTER0_IP}
+echo MASTER1_IP=${MASTER1_IP}
+echo MASTER2_IP=${MASTER2_IP}
 echo WORKER0_IP=${WORKER0_IP}
 echo WORKER1_IP=${WORKER1_IP}
 echo GATEWAY=${GATEWAY}
