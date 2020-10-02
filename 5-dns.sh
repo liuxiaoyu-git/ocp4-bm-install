@@ -1,5 +1,9 @@
 echo "STEP：Install BIND Service"
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+nmcli connection modify ${NET_IF_NAME} ipv4.dns ${DNS_IP}
+nmcli connection modify ${NET_IF_NAME} ipv4.gateway ${GATEWAY}
+systemctl restart network
+
 yum -y install bind bind-utils
 systemctl enable named --now
 restoreFile /etc/named.rfc1912.zones
