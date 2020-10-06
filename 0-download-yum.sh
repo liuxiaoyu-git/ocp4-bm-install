@@ -1,6 +1,8 @@
 read -p "Please input the OpenShift Version (for example 4.5.12):" OCP_VER
-read -s "Please input the Red Hat Subscribe UserName:" SUB_USER
-read -s "Please input the Red Hat Subscribe Password:" SUB_PASSWD
+read -s -p "Please input the Red Hat Subscribe UserName:" SUB_USER
+echo -e "\r"
+read -s -p "Please input the Red Hat Subscribe Password:" SUB_PASSWD
+echo -e "\r"
 
 export YUM_PATH=/data/OCP-${OCP_VER}/yum
 mkdir -p ${YUM_PATH}
