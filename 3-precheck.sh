@@ -10,10 +10,10 @@ then
   RESULT=1
 else
   echo "File is right: \"$1\""
-fi
+fi5
 
 checkFile ${YUM_PATH}/rhel-7-server-extras-rpms.tar.gz
-checkFile ${YUM_PATH}/rhel-7-server-ose-4.3-rpms.tar.gz
+checkFile ${YUM_PATH}/rhel-7-server-ose-4.5-rpms.tar.gz
 checkFile ${YUM_PATH}/rhel-7-server-rpms.tar.gz
 checkFile ${OCP_PATH}/ocp-image/ocp-image-${OCP_VER}.tar
 checkFile ${OCP_PATH}/ocp-installer/openshift-install-linux-${OCP_VER}.tar.gz
