@@ -1,9 +1,8 @@
-echo "STEP：Config Time Service"
+echo "STEP: Config Time Service"
 
-timedatectl list-timezones |grep Asia/Shanghai
 timedatectl set-timezone Asia/Shanghai
-yum -y install chrony
-systemctl enable chronyd --now
+# yum -y install chrony
+# systemctl enable chronyd --now
 restoreFile /etc/chrony.conf
 sed -i -e "s/^server*/#&/g" \
        -e "s/#local stratum 10/local stratum 10/g" \
