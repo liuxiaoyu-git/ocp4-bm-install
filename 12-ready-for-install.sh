@@ -1,5 +1,7 @@
 echo "STEP: Enable download ignition file"
 
+tar -xzf ${OCP_PATH}/ocp-client/openshift-client-linux-${OCP_VER}.tar.gz -C /usr/local/sbin/
+
 chmod 604 ${IGN_PATH}/*.ign
 chmod 604 ${IGN_PATH}/set-*
  
