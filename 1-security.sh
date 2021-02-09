@@ -1,4 +1,6 @@
-echo "STEP：Stop Firewall and SELINUX"
+echo "STEP: Stop Firewall and SELINUX"
+
+hostnamectl set-hostname support
 
 systemctl stop firewalld
 systemctl disable firewalld
