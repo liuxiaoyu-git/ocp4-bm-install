@@ -1,4 +1,4 @@
-echo "STEP：Install HAProxy"
+echo "STEP: Install HAProxy"
 
 yum -y install haproxy
 systemctl enable haproxy --now
@@ -34,54 +34,58 @@ defaults
     maxconn                 20000
 
 listen stats
-    bind  :9000
+    bind :9000
     mode http
     stats enable
     stats uri /
 
-frontend  openshift-api-server
-    bind  *:6443
+frontend  openshift-api-server-${OCP_CLUSTER_ID}
+    bind lb.${OCP_CLUSTER_ID}.${DOMAIN}:6443
     mode tcp
     option tcplog
-    default_backend openshift-api-server
+    default_backend openshift-api-server-${OCP_CLUSTER_ID}
 
-frontend  machine-config-server
-    bind  *:22623
+frontend  machine-config-server-${OCP_CLUSTER_ID}
+    bind lb.${OCP_CLUSTER_ID}.${DOMAIN}:22623
     mode tcp
     option tcplog
-    default_backend machine-config-server
+    default_backend machine-config-server-${OCP_CLUSTER_ID}
 
-frontend  ingress-http
-    bind  *:80
+frontend  ingress-http-${OCP_CLUSTER_ID}
+    bind lb.${OCP_CLUSTER_ID}.${DOMAIN}:80
     mode tcp
     option tcplog
-    default_backend ingress-http
+    default_backend ingress-http-${OCP_CLUSTER_ID}
 
-frontend  ingress-https
-    bind  *:443
+frontend  ingress-https-${OCP_CLUSTER_ID}
+    bind lb.${OCP_CLUSTER_ID}.${DOMAIN}:443
     mode tcp
     option tcplog
-    default_backend ingress-https
+    default_backend ingress-https-${OCP_CLUSTER_ID}
 
-backend openshift-api-server
+backend openshift-api-server-${OCP_CLUSTER_ID}
     balance source
     mode tcp
     server     bootstrap bootstrap.${OCP_CLUSTER_ID}.${DOMAIN}:6443 check
     server     master-0 master-0.${OCP_CLUSTER_ID}.${DOMAIN}:6443 check
+    server     master-1 master-1.${OCP_CLUSTER_ID}.${DOMAIN}:6443 check
+    server     master-2 master-2.${OCP_CLUSTER_ID}.${DOMAIN}:6443 check
 
-backend machine-config-server
+backend machine-config-server-${OCP_CLUSTER_ID}
     balance source
     mode tcp
     server     bootstrap bootstrap.${OCP_CLUSTER_ID}.${DOMAIN}:22623 check
     server     master-0 master-0.${OCP_CLUSTER_ID}.${DOMAIN}:22623 check
+    server     master-1 master-1.${OCP_CLUSTER_ID}.${DOMAIN}:22623 check
+    server     master-2 master-2.${OCP_CLUSTER_ID}.${DOMAIN}:22623 check
 
-backend ingress-http
+backend ingress-http-${OCP_CLUSTER_ID}
     balance source
     mode tcp
     server     worker-0 worker-0.${OCP_CLUSTER_ID}.${DOMAIN}:80 check
     server     worker-1 worker-1.${OCP_CLUSTER_ID}.${DOMAIN}:80 check
 
-backend ingress-https
+backend ingress-https-${OCP_CLUSTER_ID}
     balance source
     mode tcp
     server     worker-0 worker-0.${OCP_CLUSTER_ID}.${DOMAIN}:443 check
@@ -90,7 +94,7 @@ backend ingress-https
 EOF
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 systemctl restart haproxy
-
+sleep 40s
 echo =============================================================================================
 echo =================== Complete HAProxy Config and Waiting for Running ... =====================
 echo ============================== All Ports HAProxy Listened Are ===============================
