@@ -13,7 +13,7 @@ gpgcheck=0
 
 [ose]
 name=ose
-baseurl=file://${YUM_PATH}/rhel-7-server-ose-4.3-rpms
+baseurl=file://${YUM_PATH}/rhel-7-server-ose-4.6-rpms
 enabled=1
 gpgcheck=0
 
