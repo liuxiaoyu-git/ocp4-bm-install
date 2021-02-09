@@ -55,7 +55,6 @@ support       IN A                          ${SUPPORT_IP}
 dns           IN A                          ${DNS_IP}
 ntp           IN A                          ${NTP_IP}
 yum           IN A                          ${YUM_IP}
-registry      IN A                          ${REGISTRY_IP}
 nfs           IN A                          ${NFS_IP}
 
 EOF
