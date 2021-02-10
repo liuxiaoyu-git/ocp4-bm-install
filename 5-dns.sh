@@ -141,6 +141,7 @@ checkDNSIP() {
 }
 #
 echo --------------------- Forward Check DNS---------------------
+dig www.quay.io +short
 checkDNSIP nfs.${DOMAIN} "$NFS_IP"
 checkDNSIP dns.${DOMAIN} "$DNS_IP"
 checkDNSIP yum.${DOMAIN} "$YUM_IP"
